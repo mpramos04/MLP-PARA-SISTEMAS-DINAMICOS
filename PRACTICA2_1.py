@@ -84,10 +84,21 @@ plt.show()
 planta = [uu, z]
 planta = np.transpose(planta)
 
+uk_1 = normu[1:len(normu)-1]
+uk_2 = normu[0:len(normu)-2]
+yk_1 = normz[1:len(normu)-1]
+yk_2 = normz[0:len(normu)-2]
+yk = normz[2:]
 
+datos = np.zeros((len(z)-2,5))
+datos[:, 0] = uk_1
+datos[:, 1] = uk_2
+datos[:, 2] = yk_1
+datos[:, 3] = yk_2
+datos[:, 4] = yk
 
 #Se guardan los datos
-#np.savez("datos", datos=datos, tt=tt)
+np.savez("datos", datos=datos, tt=tt)
 
 
 
